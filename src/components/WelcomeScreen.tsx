@@ -24,32 +24,36 @@ export default function WelcomeScreen({ language, onStart }: Props) {
       lang={language}
       dir={isAr ? 'rtl' : 'ltr'}
     >
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-navy-900 via-navy-800 to-forest-900 hex-pattern text-white py-10 sm:py-14 px-4">
+      {/* Hero banner — dark strip for event badge only */}
+      <section className="bg-gradient-to-br from-navy-900 via-navy-800 to-forest-900 hex-pattern text-white pt-6 pb-8 px-4">
         <div className="max-w-3xl mx-auto text-center">
 
           {/* Event theme badge */}
-          <div className="inline-flex items-center gap-2 bg-white/15 border border-white/30 rounded-full px-4 py-1.5 mb-5 text-white text-xs sm:text-sm font-medium">
+          <div className="inline-flex items-center gap-2 bg-white/15 border border-white/30 rounded-full px-4 py-1.5 mb-6 text-white text-xs sm:text-sm font-medium">
             <span>🔬</span>
             <span>{isAr ? EVENT_THEME_AR : EVENT_THEME_EN}</span>
           </div>
 
-          {/* Main title */}
-          <h1 className={`font-bold text-white text-2xl sm:text-3xl md:text-4xl leading-tight mb-3 ${isAr ? 'font-arabic' : ''}`}>
-            {isAr ? `مرحباً بكم في ${APP_NAME_AR}` : `Welcome to the ${APP_NAME_EN}`}
-          </h1>
+          {/* White card with dark text */}
+          <div className="bg-white rounded-2xl shadow-xl px-6 py-6 sm:px-10 sm:py-8 text-center">
 
-          {/* Subtitle */}
-          <p className={`text-white text-base sm:text-lg font-semibold mb-3 ${isAr ? 'font-arabic' : ''}`}>
-            {isAr ? APP_SUBTITLE_AR : APP_SUBTITLE_EN}
-          </p>
+            {/* Main title */}
+            <h1 className={`font-bold text-navy-900 text-2xl sm:text-3xl md:text-4xl leading-tight mb-3 ${isAr ? 'font-arabic' : ''}`}>
+              {isAr ? `مرحباً بكم في ${APP_NAME_AR}` : `Welcome to the ${APP_NAME_EN}`}
+            </h1>
 
-          {/* Description */}
-          <p className={`text-gray-100 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed ${isAr ? 'font-arabic' : ''}`}>
-            {isAr
-              ? 'اكتشف كيف تسهم إدارة المختبرات الطبية في تحويل الأسئلة السريرية والعينات وبيانات المختبر إلى أدلة علمية موثوقة.'
-              : 'Discover how the Medical Laboratory Department transforms clinical questions, patient specimens and laboratory data into reliable scientific evidence.'}
-          </p>
+            {/* Subtitle */}
+            <p className={`text-navy-700 text-base sm:text-lg font-semibold mb-4 ${isAr ? 'font-arabic' : ''}`}>
+              {isAr ? APP_SUBTITLE_AR : APP_SUBTITLE_EN}
+            </p>
+
+            {/* Description */}
+            <p className={`text-gray-700 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed ${isAr ? 'font-arabic' : ''}`}>
+              {isAr
+                ? 'اكتشف كيف تسهم إدارة المختبرات الطبية في تحويل الأسئلة السريرية والعينات وبيانات المختبر إلى أدلة علمية موثوقة.'
+                : 'Discover how the Medical Laboratory Department transforms clinical questions, patient specimens and laboratory data into reliable scientific evidence.'}
+            </p>
+          </div>
         </div>
       </section>
 
