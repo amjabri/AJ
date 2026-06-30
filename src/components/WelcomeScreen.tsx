@@ -40,12 +40,12 @@ export default function WelcomeScreen({ language, onStart }: Props) {
           </h1>
 
           {/* Subtitle */}
-          <p className={`text-gray-200 text-base sm:text-lg font-semibold mb-3 ${isAr ? 'font-arabic' : ''}`}>
+          <p className={`text-white text-base sm:text-lg font-semibold mb-3 ${isAr ? 'font-arabic' : ''}`}>
             {isAr ? APP_SUBTITLE_AR : APP_SUBTITLE_EN}
           </p>
 
           {/* Description */}
-          <p className={`text-gray-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed ${isAr ? 'font-arabic' : ''}`}>
+          <p className={`text-gray-100 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed ${isAr ? 'font-arabic' : ''}`}>
             {isAr
               ? 'اكتشف كيف تسهم إدارة المختبرات الطبية في تحويل الأسئلة السريرية والعينات وبيانات المختبر إلى أدلة علمية موثوقة.'
               : 'Discover how the Medical Laboratory Department transforms clinical questions, patient specimens and laboratory data into reliable scientific evidence.'}
