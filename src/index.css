@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Font base ─────────────────────────────────────────────────────────────── */
+body {
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[lang="ar"] body,
+.font-arabic,
+[dir="rtl"] {
+  font-family: 'Tajawal', sans-serif;
+}
+
+/* ─── Flip card 3-D ──────────────────────────────────────────────────────────── */
+.flip-card-perspective {
+  perspective: 1200px;
+}
+
+.flip-card-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.45, 0.05, 0.15, 0.95);
+  width: 100%;
+  height: 100%;
+}
+
+.flip-card-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Respect user motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .flip-card-inner {
+    transition: none;
+  }
+  .confetti-particle {
+    animation: none !important;
+    display: none !important;
+  }
+  .animate-bounce-in,
+  .animate-shake {
+    animation: none !important;
+  }
+}
+
+/* ─── Confetti ───────────────────────────────────────────────────────────────── */
+@keyframes confettiFall {
+  0%   { transform: translateY(-30px) rotate(0deg);   opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+.confetti-particle {
+  position: absolute;
+  animation: confettiFall var(--fall-duration, 2s) var(--fall-delay, 0s) ease-in forwards;
+}
+
+/* ─── Hexagon background pattern (decorative) ────────────────────────────────── */
+.hex-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='80'%3E%3Cpolygon points='35,2 68,19 68,61 35,78 2,61 2,19' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-size: 70px 80px;
+}
+
+.hex-pattern-light {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='80'%3E%3Cpolygon points='35,2 68,19 68,61 35,78 2,61 2,19' fill='none' stroke='rgba(27,58,107,0.08)' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-size: 70px 80px;
+}
+
+/* ─── Scrollbar styling ──────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F0F4F8;
+}
+::-webkit-scrollbar-thumb {
+  background: #A5BADF;
+  border-radius: 3px;
+}
+
+/* ─── Focus ring ─────────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 3px solid #2D5FA3;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─── Smooth screen transitions ──────────────────────────────────────────────── */
+.screen-enter {
+  animation: screenFadeIn 0.35s ease-out;
+}
+
+@keyframes screenFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Progress bar animation ─────────────────────────────────────────────────── */
+.progress-bar-fill {
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Countdown bar ──────────────────────────────────────────────────────────── */
+.countdown-bar {
+  animation: countdownShrink 10s linear forwards;
+}
+
+@keyframes countdownShrink {
+  from { width: 100%; }
+  to   { width: 0%; }
+}
+
+/* ─── RTL-safe margin/padding helpers ───────────────────────────────────────── */
+[dir="rtl"] .ltr-only { display: none; }
+[dir="ltr"] .rtl-only { display: none; }
